@@ -13,4 +13,5 @@ urlpatterns = [
     path('api/setInfo', api.setInfo),
     path('api/hendleGet', api.hendleGet),
     path('api/runList', api.runList),
+    path('api/logout', api.logout),
 ]

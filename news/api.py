@@ -10,9 +10,10 @@ from newsWeb import models
 import json
 
 def getInfo(request):
-    ret = models.user.objects(username = request.COOKIES.get('username')).as_pymongo()
-    if ret == None:
+    if request.COOKIES.get('username') == None:
         return HttpResponse(json.dumps({}))
+
+    ret = models.user.objects(username = request.COOKIES.get('username')).as_pymongo()
 
     for i in ret:
         i['_id'] = ''

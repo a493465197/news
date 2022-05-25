@@ -11,4 +11,4 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 def index(request):
     # ret = model.newsina.objects().count()
-    return HttpResponse('ret')
+    return render(request, 'index.html')

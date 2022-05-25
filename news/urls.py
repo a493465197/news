@@ -1,7 +1,11 @@
-from django.urls import path
-
+import os
+from pathlib import Path
+from django.urls import path,re_path
+from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 from . import api
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -15,3 +19,6 @@ urlpatterns = [
     path('api/runList', api.runList),
     path('api/logout', api.logout),
 ]
+
+
+# urlpatterns += static('/static', document_root=os.path.join(BASE_DIR, 'static'))

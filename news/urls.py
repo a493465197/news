@@ -18,6 +18,8 @@ urlpatterns = [
     path('api/hendleGet', api.hendleGet),
     path('api/runList', api.runList),
     path('api/logout', api.logout),
+    path('api/userList', api.userList),
+    path('api/delUser', api.delUser),
 ]
 
 

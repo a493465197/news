@@ -1,5 +1,6 @@
 import code
 from django.shortcuts import render
+from requests import delete
 from scrapy import cmdline
 import random
 import os
@@ -64,8 +65,10 @@ def updateDoc(request):
 def setInfo(request):
     body = json.loads(request.body)
 
-    h = models.user.objects.get(**{'username': body.get('username')})
-    h.update(**json.loads(request.body))
+    h = models.user.objects.get(**{'username': body.get('currUser') or body.get('username')})
+    if body.get('currUser'):
+        body.pop('currUser')
+    h.update(**body)
     h.save()
 
     return HttpResponse(json.dumps({
@@ -106,3 +109,22 @@ def logout(request):
     h = HttpResponse(json.dumps({'code': 0, 'msg': '登出成功'}))
     h.delete_cookie('username')
     return h
+
+def userList(request):
+    ret = models.user.objects().as_pymongo().limit(200)
+    for i in ret:
+        i['_id'] = ''
+    ret = list(ret)
+    return HttpResponse(json.dumps({
+        'code': 0,
+        'value': ret
+    }))
+
+def delUser(request):
+    body = json.loads(request.body)
+    ret = models.user.objects.get(**{'username': body.get('username')})
+    ret.delete()
+    ret.save()
+    return HttpResponse(json.dumps({
+        'code': 0,
+    }))

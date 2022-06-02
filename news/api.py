@@ -86,7 +86,7 @@ def hendleGet(request):
     if body.get('value') == 'tx':
         models.run(**{'type': '腾讯网', 'username': request.COOKIES.get('username'), 'id1': id1}).save()
         os.system('scrapy crawl qq_spider -a id1=' + id1)
-    if body.get('value') == 'em':
+    if body.get('value') == 'rm':
         models.run(**{'type': '人民网', 'username': request.COOKIES.get('username'), 'id1': id1}).save()
         os.system('scrapy crawl newsina_spider -a id1=' + id1)
     return HttpResponse(json.dumps({

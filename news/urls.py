@@ -20,6 +20,8 @@ urlpatterns = [
     path('api/logout', api.logout),
     path('api/userList', api.userList),
     path('api/delUser', api.delUser),
+    path('api/delDoc', api.delDoc),
+    path('api/addTag', api.addTag),
 ]
 
 

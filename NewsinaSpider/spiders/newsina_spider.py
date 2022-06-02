@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from time import time
 from scrapy import Request
 from ..items import *
 import random
@@ -7,6 +8,7 @@ import json
 import re
 from datetime import datetime
 import ssl
+import time
  
 ssl._create_default_https_context = ssl._create_unverified_context
 class NewsinaSpiderSpider(scrapy.Spider):
@@ -35,7 +37,7 @@ class NewsinaSpiderSpider(scrapy.Spider):
 
     def start_requests(self):
         #  可修改  这里设置爬取100页
-        page_total = 1
+        page_total = 10
         for page in range(1, page_total+1):
             lid = "2509"
             r = random.random()
@@ -44,34 +46,42 @@ class NewsinaSpiderSpider(scrapy.Spider):
             lid = "2510"
             r = random.random()
             yield Request(self.base_url.format(lid, page, r), callback=self.parse)
+        # time.sleep(3)
         for page in range(1, page_total+1):
             lid = "2669"
             r = random.random()
             yield Request(self.base_url.format(lid, page, r), callback=self.parse)
+        # time.sleep(3)
         for page in range(1, page_total+1):
             lid = "2512"
             r = random.random()
             yield Request(self.base_url.format(lid, page, r), callback=self.parse)
+        # time.sleep(3)
         for page in range(1, page_total+1):
             lid = "2513"
             r = random.random()
             yield Request(self.base_url.format(lid, page, r), callback=self.parse)
+        # time.sleep(3)
         for page in range(1, page_total+1):
             lid = "2514"
             r = random.random()
             yield Request(self.base_url.format(lid, page, r), callback=self.parse)
+        # time.sleep(3)
         for page in range(1, page_total+1):
             lid = "2515"
             r = random.random()
             yield Request(self.base_url.format(lid, page, r), callback=self.parse)
+        # time.sleep(3)
         for page in range(1, page_total+1):
             lid = "2516"
             r = random.random()
             yield Request(self.base_url.format(lid, page, r), callback=self.parse)
+        time.sleep(3)
         for page in range(1, page_total+1):
             lid = "2517"
             r = random.random()
             yield Request(self.base_url.format(lid, page, r), callback=self.parse)
+        time.sleep(3)
         for page in range(1, page_total+1):
             lid = "2518"
             r = random.random()

@@ -8,6 +8,7 @@
 import pymongo
 from pymongo.errors import DuplicateKeyError
 from NewsinaSpider.items import NewsinaspiderItem
+import time
 
 class MongoPipeline(object):
     def __init__(self, local_mongo_host, local_mongo_port, mongo_db):

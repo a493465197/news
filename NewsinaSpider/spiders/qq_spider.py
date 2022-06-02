@@ -15,7 +15,7 @@ class QqSpider(scrapy.Spider):
         self.id1 = id1
     name = 'qq_spider'
 
-    base_url = 'https://pacaio.match.qq.com/xw/recommend?num=10'
+    base_url = 'https://pacaio.match.qq.com/xw/recommend?num=90'
 
 
     def start_requests(self):

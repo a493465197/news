@@ -128,3 +128,35 @@ def delUser(request):
     return HttpResponse(json.dumps({
         'code': 0,
     }))
+
+def delDoc(request):
+    body = json.loads(request.body)
+    ret = models.newsina.objects.get(**{'id1': body.get('id1')})
+    ret.delete()
+    ret.save()
+    return HttpResponse(json.dumps({
+        'code': 0,
+    }))
+
+def addTag(request):
+    body = json.loads(request.body)
+    ret = models.newsina.objects().as_pymongo().limit(200)
+    flag = False
+    for i in ret:
+        i['_id'] = ''
+        if i.get('content').find(body.get('value')) >= 0:
+            flag = True
+            findItem = models.newsina.objects.get(**{'id1': i['id1']})
+            findItem.update(**{'keywords': findItem['keywords'] + ',' + body.get('value')})
+            findItem.update(**{'lids': findItem['lids'] + ',' + body.get('value')})
+            findItem.save()
+    ret = list(ret)
+    if flag:
+        return HttpResponse(json.dumps({
+            'code': 0,
+        }))
+    else:
+        return HttpResponse(json.dumps({
+            'code': -1,
+            'msg': '没有找到相关新闻'
+        }))

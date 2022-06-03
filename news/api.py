@@ -41,7 +41,7 @@ def login(request):
 
 
 def docList(request):
-    ret = models.newsina.objects().limit(100).order_by('-ctime').as_pymongo()
+    ret = models.newsina.objects().limit(300).order_by('-ctime').as_pymongo()
     for i in ret:
         i['_id'] = ''
     ret = list(ret)

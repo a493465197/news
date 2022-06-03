@@ -25,7 +25,7 @@ class MongoPipeline(object):
         )
 
     def open_spider(self, spider):
-        self.client = pymongo.MongoClient(host='124.221.66.29', port=27017, username='root', password='pachongzraipi',authSource='pachong')
+        self.client = pymongo.MongoClient(host='3607h09y06.qicp.vip', port=8917, username='root', password='pachongzraipi',authSource='pachong')
         self.db = self.client[self.mongo_db]
         # self.db[NewsinaspiderItem.collection].create_index([('id', pymongo.ASCENDING)])
 

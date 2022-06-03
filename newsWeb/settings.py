@@ -14,7 +14,7 @@ from pathlib import Path
 from mongoengine import *
 from . import models
 
-connect('pachong', host='124.221.66.29', port=27017, username='root', password='pachongzraipi',authentication_source='pachong') 
+connect('pachong', host='3607h09y06.qicp.vip', port=8917, username='root', password='pachongzraipi',authentication_source='pachong') 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

@@ -41,7 +41,7 @@ def login(request):
 
 
 def docList(request):
-    ret = models.newsina.objects().as_pymongo().limit(200)
+    ret = models.newsina.objects().limit(100).order_by('-ctime').as_pymongo()
     for i in ret:
         i['_id'] = ''
     ret = list(ret)
@@ -96,7 +96,7 @@ def hendleGet(request):
 
 
 def runList(request):
-    ret = models.run.objects().as_pymongo().limit(200)
+    ret = models.run.objects().as_pymongo().limit(200).order_by('-time')
     for i in ret:
         i['_id'] = ''
     ret = list(ret)

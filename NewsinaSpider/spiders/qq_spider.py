@@ -9,9 +9,9 @@ from datetime import datetime
 import ssl
  
 ssl._create_default_https_context = ssl._create_unverified_context
-class QqSpider(scrapy.Spider):
+class RmSpider(scrapy.Spider):
     def __init__(self, id1=None, *args, **kwargs):
-        super(QqSpider, self).__init__(*args, **kwargs)
+        super(RmSpider, self).__init__(*args, **kwargs)
         self.id1 = id1
     name = 'qq_spider'
 

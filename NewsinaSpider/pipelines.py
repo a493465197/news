@@ -42,6 +42,7 @@ class MongoPipeline(object):
 
     @staticmethod
     def insert_item(collection, item, spider):
+        print(item)
         try:
             v = dict(item)
             v['runId1'] = spider.id1
